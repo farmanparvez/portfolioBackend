@@ -26,7 +26,9 @@ app.use("/hero", heroRouter);
 app.use("/work", workRouter);
 app.use("/about", aboutRouter);
 
-// app.
+
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
+
 
 // if(process.env.NODE_ENV === 'production') {
 //   app.use(express.static(path.resolve(__dirname, "frontend", "build")));
