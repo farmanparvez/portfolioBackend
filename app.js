@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const app = express();
+const cors = require('cors')
 const morgan = require('morgan')
 const authRouter = require("./routes/auth");
 const skillRouter = require('./routes/skill')
@@ -10,8 +11,14 @@ const workRouter = require('./routes/work')
 const aboutRouter = require('./routes/about')
 const AppError = require("./utils/appError")
 const globalErrorHandler = require("./utils/globalErrorHandler");
-
 // app.get('/', (req, res) => res.send("running"))
+
+const corsOptions = {
+  origin: ["https://e-shop-gamma-ten.vercel.app", 'http://localhost:5173', 'http://localhost:3000',],
+  credentials: true,            //access-control-allow-credentials:true
+  optionSuccessStatus: 200
+}
+app.use(cors(corsOptions));
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));

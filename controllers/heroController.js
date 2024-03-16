@@ -88,14 +88,14 @@ exports.getResume = catchAsync(async (req, res, next) => {
 
   const resume = await Resume.find()
 
-  const resumeFilePath = path.join(__dirname, 'resumes', 'your_resume_file.pdf');
+  // const resumeFilePath = path.join(__dirname, 'resumes', 'your_resume_file.pdf');
   
-  // Set the appropriate Content-Type header
-  res.setHeader('Content-Type', 'application/pdf');
+  // // Set the appropriate Content-Type header
+  // res.setHeader('Content-Type', 'application/pdf');
 
-  // Stream the resume file to the response
-  const fileStream = fs.createReadStream(resumeFilePath);
-  fileStream.pipe(res);
+  // // Stream the resume file to the response
+  // const fileStream = fs.createReadStream(resumeFilePath);
+  // fileStream.pipe(res);
 
   res.status(200).json({
     status: 'success',
