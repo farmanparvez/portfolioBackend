@@ -18,6 +18,7 @@ if (process.env.NODE_ENV === "development") {
 }
 app.use(express.json());
 
+app.get('/', (req, res) => res.send('server is running'))
 app.use("/", authRouter);
 app.use("/skill", skillRouter);
 app.use("/education", educationRouter);
@@ -25,6 +26,7 @@ app.use("/hero", heroRouter);
 app.use("/work", workRouter);
 app.use("/about", aboutRouter);
 
+// app.
 
 // if(process.env.NODE_ENV === 'production') {
 //   app.use(express.static(path.resolve(__dirname, "frontend", "build")));
